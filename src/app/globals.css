@@ -86,6 +86,87 @@ body {
   }
 }
 
+.dapp-desktop {
+  width: 90%;
+  margin: auto;
+  height: 600px;
+  position: relative;
+  background-image: url(/exchange-preview.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  border-radius: 15px;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+.crosschain-line {
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 70%;
+  display: block;
+  border-left: 1px dashed rgba(0, 0, 0, .2);
+}
+
+.crosschain-blur-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, .4);
+  z-index: 2;
+  -webkit-backdrop-filter: blur(130px);
+  backdrop-filter: blur(130px);
+}
+
+.crosschain-blur-contents {
+  width: 1400px;
+  height: 1400px;
+  background-image: url(/blur-contents-8.webp);
+  position: absolute;
+  left: 50%;
+  margin-left: -700px;
+  top: -1200px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: rotateClockwise 20s infinite linear;
+}
+
+.crosschain-blur-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+}
+
+.backup-headline {
+  background: -webkit-linear-gradient(bottom, transparent 25%, #20AAF7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  z-index: 1;
+}
+
+.ms500 {
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.clear-fix:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+
 .overlay-bg {
   min-height: calc(100vh - 78px);
   background-color: var(--overlay);

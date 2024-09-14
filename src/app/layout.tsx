@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from 'next/font/google'
 import "./globals.css";
+import "./animate.css"
 
 const dm_sans = DM_Sans({ 
   weight: ['400', '500', '700'],

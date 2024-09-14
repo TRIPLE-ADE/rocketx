@@ -54,7 +54,6 @@ export default function Connect() {
                                         <path fill="#fff9" d="M2990 2562 l0 -2132 210 0 210 0 0 1490 0 1490 425 0 c234 0 425 3 425 8 0 4 -286 293 -635 642 l-635 635 0 -2133z"></path>
                                     </g>
                                 </svg>
-
                             </div>
                             <div className="bg-secondary py-2.5 px-3.5 h-20 rounded flex justify-between">
                                 <div className="flex items-center gap-4">
