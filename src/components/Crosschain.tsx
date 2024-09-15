@@ -19,20 +19,20 @@ export default function Crosschain() {
                         <h2 className="backup-headline font-black ms500 text-white text-[100px] text-center tracking-[-0.05em] leading-[120px] w-full absolute left-0 top-[-35px]">Swap</h2>
                         <h2 className="ms500 text-[100px] text-[#2f1c66] relative z-[2] mt-10 tracking-tighter font-black">Crosschain</h2>
                     </div>
-                    <p>Swap your assets seamlessly across multiple blockchain networks with RocketX cross-chain swap feature. Whether you want to swap BTC to ETH, ETH to BNB or ETH to AVAX, our platform allows you to exchange one cryptocurrency for another, on all leading blockchains, without any hassle. Enjoy fast and secure trades with our cutting-edge cross-chain swap technology.</p>
-                    <ul className="crosschain-stats clear-fix box-sizing font-bold">
+                    <p className="text-primary z-10 relative pt-8 tracking-wide leading-8 text-xl text-center">Swap your assets seamlessly across multiple blockchain networks with RocketX cross-chain swap feature. Whether you want to swap BTC to ETH, ETH to BNB or ETH to AVAX, our platform allows you to exchange one cryptocurrency for another, on all leading blockchains, without any hassle. Enjoy fast and secure trades with our cutting-edge cross-chain swap technology.</p>
+                    <ul className="font-bold list-none relative z-10 p-16">
                         <li data-global-stat="swaps">
-                            {/* <img src="https://cdn.rocketx.exchange/pd135zq/website/ui/networks-icon.png" alt="blockchains" className="crosschain-stats-icon" /> */}
+                            <img src="/networks-icon.png" alt="blockchains" className="crosschain-stats-icon" />
                             <h4>654,145</h4>
                             <h6>swaps</h6>
                         </li>
                         <li data-global-stat="volume">
-                            {/* <img src="https://cdn.rocketx.exchange/pd135zq/website/ui/volume-icon.png" alt="volume" className="crosschain-stats-icon" /> */}
+                            <img src="/volume-icon-1.png" alt="volume" className="crosschain-stats-icon" />
                             <h4>$1.147B</h4>
                             <h6>Total volume</h6>
                         </li>
                         <li data-global-stat="networks">
-                            {/* <img src="https://cdn.rocketx.exchange/pd135zq/website/ui/swap-icon.png" alt="swaps" className="crosschain-stats-icon swap-icon" /> */}
+                            <img src="/swap-icon.png" alt="swaps" className="crosschain-stats-icon swap-icon" />
                             <h4>161</h4>
                             <h6>networks</h6>
                         </li>

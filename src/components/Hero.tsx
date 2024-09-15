@@ -1,24 +1,26 @@
 import { Button } from "@/components/ui/button";
 import BlurFade from "@/components/magicui/blur-fade";
+import Header from "./Header";
 
 export default function Hero() {
     return (
         <div className="w-full min-h-screen font-bold flex flex-col items-center justify-center p-4 bg-[#010106] bg-[url('/bg.webp')] bg-fixed bg-cover bg-center bg-no-repeat overflow-x-hidden">
-            <div className="w-full lg:w-3/5 lg:mb-0 text-white pt-16 text-center">
-                <BlurFade delay={0.15}>
+            <Header />
+            <div className="w-full lg:w-3/5 lg:mb-0 text-white pt-20 text-center">
+                <BlurFade delay={0.005}>
                     <p className="text-2xl font-normal">Cheaper, Faster and more Secure.</p>
                     <h1 className="text-5xl font-bold leading-tight my-8">
                         Seamlessly Uniting Blockchains
                     </h1>
                 </BlurFade>
 
-                <BlurFade delay={0.2}>
+                <BlurFade delay={0.01}>
                     <p className="text-2xl font-normal leading-10 text-primary mb-8">
                         RocketX is the 1-stop-shop to get the best rates for both on-chain & cross-chain swaps across all leading exchanges via a single intuitive UI.
                     </p>
                 </BlurFade>
 
-                <BlurFade delay={0.25}>
+                <BlurFade delay={0.015}>
                     <div className="flex justify-center items-center flex-wrap gap-8 mb-12">
                         <Button variant="primary" className="rounded-[100px] uppercase gap-2">
                             <span>Launch App</span>

@@ -1,7 +1,7 @@
 'use client';
 import { Button } from "@/components/ui/button";
 import BlurFade from "@/components/magicui/blur-fade";
-import { Switch } from "./ui/switch";
+import { Switch } from "../ui/switch";
 import Image from "next/image";
 
 export default function Connect() {
@@ -32,7 +32,7 @@ export default function Connect() {
                         <div className="font-bold text-[10px] relative cursor-pointer text-center w-full flex gap-2.5 flex-col">
                             <div className="bg-secondary py-2.5 px-3.5 h-20 rounded flex justify-between">
                                 <div className="flex items-center gap-4">
-                                    <div className="rounded-full bg-secondary-foreground w-9 h-9 flex flex-col justify-center items-center">
+                                    <div className="rounded-full bg-secondary-foreground  w-11 h-8 flex flex-col justify-center items-center">
                                         <Image src="/ethereum-grey.png" alt="eth" width="17" height="17" />
                                     </div>
                                     <div className="flex flex-col">
@@ -57,7 +57,7 @@ export default function Connect() {
                             </div>
                             <div className="bg-secondary py-2.5 px-3.5 h-20 rounded flex justify-between">
                                 <div className="flex items-center gap-4">
-                                    <div className="rounded-full bg-secondary-foreground w-9 h-9 flex flex-col justify-center items-center">
+                                    <div className="rounded-full bg-secondary-foreground  w-11 h-8 flex flex-col justify-center items-center">
                                         <Image src="/avatar.webp" alt="eth" width="17" height="17" />
                                     </div>
                                     <div className="flex flex-col">
