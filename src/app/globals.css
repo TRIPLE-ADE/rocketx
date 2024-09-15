@@ -143,8 +143,20 @@ body {
   top: 0;
 }
 
-.backup-headline {
+
+.crosschain-headline {
   background: -webkit-linear-gradient(bottom, transparent 25%, #20AAF7 100%);
+}
+
+.introduction-headline {
+  background: -webkit-linear-gradient(bottom, transparent 25%, #8883db 100%);
+}
+
+.referral-headline {
+  background: -webkit-linear-gradient(bottom, transparent 25%, #DF5388 100%);
+}
+
+.backup-headline {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -166,6 +178,14 @@ body {
   height: 0;
 }
 
+.crosschain-stats h4 {
+  font-size: 32px;
+  background: -webkit-linear-gradient(bottom, #094EEE, #a350f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+  letter-spacing: -.02em;
+}
 
 .overlay-bg {
   min-height: calc(100vh - 78px);
@@ -204,4 +224,13 @@ body {
   font-size: 1rem;
   white-space: nowrap;
   font-weight: 700 !important;
+}
+
+.rewards-line {
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  display: block;
+  border-left: 1px dashed rgba(0, 0, 0, .1);
 }
