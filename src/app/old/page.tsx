@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import DotPattern from "@/components/DotPattern";
 import Card from "@/components/Card";
 import BlurFade from "@/components/magicui/blur-fade";

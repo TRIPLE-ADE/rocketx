@@ -1,6 +1,3 @@
-import { Button } from "@/components/ui/button";
-import BlurFade from "@/components/magicui/blur-fade";
-
 export default function Crosschain() {
     return (
         <div className="bg-white relative">
@@ -21,7 +18,7 @@ export default function Crosschain() {
                     </div>
                     <p className="text-primary z-10 relative pt-8 tracking-wide leading-8 text-xl text-center">Swap your assets seamlessly across multiple blockchain networks with RocketX cross-chain swap feature. Whether you want to swap BTC to ETH, ETH to BNB or ETH to AVAX, our platform allows you to exchange one cryptocurrency for another, on all leading blockchains, without any hassle. Enjoy fast and secure trades with our cutting-edge cross-chain swap technology.</p>
                     <ul className="font-bold list-none relative z-10 p-16">
-                        <li data-global-stat="swaps">
+                        {/* <li data-global-stat="swaps">
                             <img src="/networks-icon.png" alt="blockchains" className="crosschain-stats-icon" />
                             <h4>654,145</h4>
                             <h6>swaps</h6>
@@ -35,7 +32,7 @@ export default function Crosschain() {
                             <img src="/swap-icon.png" alt="swaps" className="crosschain-stats-icon swap-icon" />
                             <h4>161</h4>
                             <h6>networks</h6>
-                        </li>
+                        </li> */}
                         {/* <li className="clear-fix box-sizing crosschain-information-list">
                                 <a href="https://app.rocketx.exchange/swap" target="_blank" rel="noopener noreferrer"><div className="crosschain-stats-button">Try it out</div></a>
                                 <div className="crosschain-network"><img src="https://cdn.rocketx.exchange/pd135zq/website/ui/crosschain/bnb-chain.png" alt="bnb-chain" /></div>
