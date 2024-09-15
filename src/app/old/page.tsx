@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import DotPattern from "@/components/DotPattern";
 import Card from "@/components/Card";
 import BlurFade from "@/components/magicui/blur-fade";
 import { useState, useEffect } from "react";
@@ -17,7 +16,6 @@ export default function Home() {
   return (
     <div className="w-full min-h-screen flex items-center justify-center p-4 bg-[url('/bg.webp')] bg-cover bg-center bg-no-repeat relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/bg.webp')] bg-cover bg-center bg-no-repeat" style={{ filter: 'blur(5px)' }}></div>
-      <DotPattern className="z-0" />
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between rounded-xl p-4 sm:p-8 relative z-10">
         {/* 左半部分内容 */}
         <div className="w-full lg:w-1/2 lg:mb-0">
