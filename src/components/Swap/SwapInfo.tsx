@@ -1,6 +1,7 @@
 'use client';
 import BlurFade from "@/components/magicui/blur-fade";
 import Image from "next/image";
+import Table from "../Table";
 
 export default function SwapInfo() {
     return (
@@ -26,8 +27,8 @@ export default function SwapInfo() {
                             <Image src="/1inch-token.webp" alt="ETH" width={24} height={24} className="rounded-full" />
                         </div>
                         <svg width="100" height="20" className="mt-3">
-                            <line x1="0" y1="10" x2="20" y2="10" stroke="#7D8CA3" stroke-width="1" stroke-dasharray="3,3" />
-                            <line x1="80" y1="10" x2="100" y2="10" stroke="#7D8CA3" stroke-width="1" stroke-dasharray="3,3" />
+                            <line x1="0" y1="10" x2="20" y2="10" stroke="#7D8CA3" strokeWidth="1" strokeDasharray="3,3" />
+                            <line x1="80" y1="10" x2="100" y2="10" stroke="#7D8CA3" strokeWidth="1" strokeDasharray="3,3" />
                         </svg>
                         <div className="flex flex-col justify-center items-center">
                             <div className="w-[50px] h-10 rounded-full bg-secondary flex items-center justify-center">
@@ -39,7 +40,7 @@ export default function SwapInfo() {
                     </div>
                 </div>
                <div className="min-h-[70vh]">
-
+                    <Table />
                </div>
             </div>
         </BlurFade >
