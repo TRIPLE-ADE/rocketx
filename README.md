@@ -1,13 +1,5 @@
-# Next.js Hero Section Web Template
-![Shot](/public/shot.webp)
 
-## Features
-
-- Responsive design
-- Dynamic animations using Framer Motion
-- Custom UI components
-
-## Installation
+# Installation
 
 1. Clone the repository:
    ```
