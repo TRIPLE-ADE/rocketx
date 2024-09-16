@@ -1,4 +1,11 @@
-import Image from "next/image";<ul className="absolute top-0 w-full h-full z-[5] list-none skew-x-[59deg] skew-y-[59deg]">
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Crosschain() {
+    return (
+        <div className="bg-white relative">
+            <div className="overflow-hidden relative py-[300px] w-full">
+                <ul className="absolute top-0 w-full h-full z-[5] list-none skew-x-[59deg] skew-y-[59deg]">
                     <li className="float-left w-1/5 relative h-full"><span className="crosschain-line"></span></li>
                     <li className="float-left w-1/5 relative h-full"><span className="crosschain-line"></span></li>
                     <li className="float-left w-1/5 relative h-full"><span className="crosschain-line"></span></li>
@@ -6,12 +13,6 @@ import Image from "next/image";<ul className="absolute top-0 w-full h-full z-[5]
                     <li className="float-left w-1/5 relative h-full"><span className="crosschain-line"></span></li>
                     <li className="float-left w-1/5 relative h-full"><span className="crosschain-line"></span></li>
                 </ul>
-
-export default function Crosschain() {
-    return (
-        <div className="bg-white relative">
-            <div className="overflow-hidden relative py-[300px] w-full">
-                
                 <div className="shape-crosschain"></div>
                 <div className="relative w-full lg:mb-0 text-black text-center">
                     <div className="z-10 relative m-auto w-full lg:w-3/5">
@@ -42,7 +43,7 @@ export default function Crosschain() {
                             </div>
                         </div>
                         <div>
-                            <a href="https://app.rocketx.exchange/swap" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap bg-accent rounded-sm cursor-pointer block py-2 w-fit text-white text-[11px] uppercase px-7 mb-10">Try it out</a>
+                            <Link href="/swap" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap bg-accent rounded-sm cursor-pointer block py-2 w-fit text-white text-[11px] uppercase px-7 mb-10">Try it out</Link>
                             <div className="grid grid-cols-4 gap-5 max-w-52">
                                 <div className="opacity-5 hover:opacity-100"><Image width={18} height={18} src="/bnb-chain.png" alt="bnb-chain" /></div>
                                 <div className="opacity-5 hover:opacity-100"><Image width={18} height={18} src="/eth.png" alt="eth" /></div>

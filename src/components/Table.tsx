@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 export default function Table() {
     const data = [
         {
             exchange: "Paraswap",
             type: "DEX | INSTANT",
-            logo: "https://avatars.githubusercontent.com/u/52015910?s=280&v=4",
+            logo: "/52015910?s=280&v=4",
             quote: "27,363.97 RVF(V2)",
             minReceived: "27,036.08 RVF(V2)",
             gasFee: "$0.64",
@@ -14,7 +16,7 @@ export default function Table() {
         {
             exchange: "1INCH",
             type: "DEX | INSTANT",
-            logo: "https://assets.coingecko.com/coins/images/13469/small/1inch-token.png?1608803028",
+            logo: "/1inch-token.png",
             quote: "27,363.97 RVF(V2)",
             minReceived: "27,035.71 RVF(V2)",
             gasFee: "$1.00",
@@ -25,7 +27,7 @@ export default function Table() {
         {
             exchange: "UniswapV2",
             type: "DEX | INSTANT",
-            logo: "https://assets.coingecko.com/markets/images/535/small/256x256_Black-1.png?1590893262",
+            logo: "/256x256_Black-1.png",
             quote: "27,363.97 RVF(V2)",
             minReceived: "27,090.33 RVF(V2)",
             gasFee: "$0.77",
@@ -52,7 +54,7 @@ export default function Table() {
                         <tr key={index} className="font-bold text-[11px] text-white rounded-md overflow-hidden">
                             <td className={`flex gap-3 items-center rounded-l-md p-5 ${index === 0 ? "bg-[#5757735c]" : "bg-[#5757731F]"}`}>
                                 <span className="w-8 h-8 bg-slate-900 rounded-full p-1 flex flex-col justify-center items-center">
-                                    <img src={row.logo} alt={row.exchange} className="w-6 h-6 rounded-full" />
+                                    <Image width={24} height={24} src={row.logo} alt={row.exchange} className="w-6 h-6 rounded-full" />
                                 </span>
                                 <span className="flex flex-col">
                                     <span className="uppercase">{row.exchange}</span>
