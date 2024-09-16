@@ -160,6 +160,15 @@ body {
   background: linear-gradient(180deg, #6E6AB4 16.87%, #51538D 45.24%, #3C3A68 65.66%);
 }
 
+.roadmap-headline{
+  background: -webkit-linear-gradient(bottom, transparent 25%, #759BFA 100%);
+}
+
+
+.navigator {
+  background: -webkit-linear-gradient(bottom, transparent 25%, #5f636d 100%);
+}
+
 .backup-headline {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -308,7 +317,7 @@ body {
 .testimonial-wrapper {
   width: 100%;
   background-color: #010106;
-  background-image: url(https://cdn.rocketx.exchange/pd135zq/website/ui/bg.webp);
+  background-image: url(/bg.webp);
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: center center;
@@ -317,4 +326,39 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover
+}
+
+.audit-wrapper {
+  width: 100%;
+  background-image: url(/bg.webp);
+  position: relative;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-color: #000000;
+}
+
+#new1.show {
+  transform: translate(0%);
+}
+
+#new, #old, #new1 {
+  position: absolute;
+  width: 100%;
+}
+
+
+.roadmap-item {
+  padding: 10px 0;
+  line-height: 28px;
+  font-size: 15px;
+  color: #7d8ca3;
+}
+
+.roadmap-item.active{
+  color: #fff;
+  padding-left: 30px;
+  background-image: url(/roadmap-done.webp);
+  background-position: left 15px;
+  background-repeat: no-repeat;
+  background-size: 16px;
 }

@@ -1,4 +1,3 @@
-
 .dapp-shape-1 {
     width: 80px;
     height: 120px;
@@ -151,10 +150,11 @@
     0% {
         filter: hue-rotate(0deg);
     }
-    
+
     50% {
         filter: hue-rotate(-50deg);
     }
+
     100% {
         filter: hue-rotate(0deg);
     }
@@ -187,10 +187,22 @@
 }
 
 
+.roadmap-shape-1-inner {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    animation: rotateClockwise 2s infinite linear;
+}
+
+
 @keyframes rotateClockwise {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -241,5 +253,139 @@
 @keyframes chargeStarParticles {
     100% {
         background-position: -8145px top;
+    }
+}
+
+
+.laser {
+    width: 163px;
+    height: 528px;
+    position: absolute;
+    left: 50%;
+    margin-left: -82px;
+    top: -151px;
+    background-size: 3586px !important;
+    animation: laser .5s steps(23) infinite;
+    background: url(/laser.png) no-repeat 0 top;
+    z-index: 3;
+}
+
+@keyframes laser {
+    100% {
+        background-position: -3586px top;
+    }
+}
+
+.audit-orb-icon {
+    width: 150px;
+    height: 150px;
+    background-image: url(/intro-shape-2.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -72px;
+    margin-top: -65px;
+    animation: rewardsLevitate 4s infinite ease;
+    opacity: 9;
+}
+
+.audit-orb {
+    width: 399px;
+    height: 415px;
+    position: absolute;
+    background-size: 11948px !important;
+    animation: auditOrb .5s steps(30) infinite;
+    background: url(/orb-compressed.png) no-repeat 0 bottom;
+    z-index: 3;
+}
+
+@keyframes auditOrb {
+    100% {
+        background-position: -11948px bottom;
+    }
+}
+
+.audit-orb-explode {
+    width: 403px;
+    height: 414px;
+    opacity: 1;
+    position: absolute;
+    left: 10px;
+    background-size: 11687px !important;
+    animation: auditOrbExplode .6s steps(30) infinite;
+    background: url(/orb-explode.png) no-repeat 0 bottom;
+    z-index: 1;
+}
+
+
+@keyframes auditOrbExplode {
+    100%{
+        background-position: -11678px bottom;
+    }
+}
+
+
+.roadmap-shape-1-inner {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    animation: rotateClockwise 2s infinite linear;
+}
+
+.roadmap-shape-1-inner:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, .2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+}
+
+@keyframes rotateClockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.roadmap-shape-2 {
+    width: 40px;
+    height: 40px;
+    border: 1px dashed rgba(255, 255, 255, .15);
+    position: absolute;
+    left: 300px;
+    top: -52px;
+    transform-origin: bottom right;
+    animation: dice 5s infinite ease-in-out;
+}
+
+
+@keyframes dice {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(90deg);
+    }
+    60% {
+        transform: rotate(90deg);
+    }
+    70% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }

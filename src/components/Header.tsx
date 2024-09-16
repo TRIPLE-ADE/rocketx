@@ -1,4 +1,4 @@
-import { AlignJustify, ChevronDown, Ham, HammerIcon } from 'lucide-react';
+import { AlignJustify, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
