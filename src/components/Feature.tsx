@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Feature() {
     return (
         <section className="bg-[url('/bg.webp')] relative">
@@ -62,7 +64,7 @@ export default function Feature() {
                                     <p className="text-[15px] leading-8 tracking-tight pt-5 text-primary">
                                         All trades on RocketX are just a click away with RVFscan in real-time.
                                         <br />
-                                        <a
+                                        <Link
                                             href="https://rvfscan.io"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -70,7 +72,7 @@ export default function Feature() {
                                             aria-label="show history"
                                         >
                                             View History
-                                        </a>
+                                        </Link>
                                     </p>
                                 </div>
                             </div>

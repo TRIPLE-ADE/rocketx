@@ -17,7 +17,6 @@ export default function Home() {
     <div className="w-full min-h-screen flex items-center justify-center p-4 bg-[url('/bg.webp')] bg-cover bg-center bg-no-repeat relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/bg.webp')] bg-cover bg-center bg-no-repeat" style={{ filter: 'blur(5px)' }}></div>
       <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between rounded-xl p-4 sm:p-8 relative z-10">
-        {/* 左半部分内容 */}
         <div className="w-full lg:w-1/2 lg:mb-0">
           <BlurFade delay={0.15}>
             <h1 className="text-black text-5xl sm:text-5xl lg:text-6xl font-bold  leading-tight mb-4">
@@ -56,7 +55,6 @@ export default function Home() {
           </BlurFade>
         </div>
 
-        {/* 右半部分内容 */}
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-4 lg:mt-0">
           <div className="relative w-full max-w-[400px] sm:max-w-[520px] md:max-w-[600px] lg:max-w-3xl h-[550px] sm:h-[650px] md:h-[700px] lg:h-[750px]">
             <Card

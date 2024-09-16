@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import BlurFade from "@/components/magicui/blur-fade";
 import Header from "./Header";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -22,6 +23,7 @@ export default function Hero() {
 
                 <BlurFade>
                     <div className="flex justify-center items-center flex-wrap gap-8 mb-12">
+                        <Link href="/swap">
                         <Button variant="primary" className="rounded-[100px] uppercase gap-2">
                             <span>Launch App</span>
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="18" height="18" viewBox="0 0 512 512" style={{ transform: 'rotate(90deg)' }} preserveAspectRatio="xMidYMid meet">
@@ -31,6 +33,7 @@ export default function Hero() {
                                 </g>
                             </svg>
                         </Button>
+                        </Link>
                         <Button variant="primary" className="bg-[#ffffff17] px-7 rounded-[100px] uppercase">
                             Rocketx API
                         </Button>

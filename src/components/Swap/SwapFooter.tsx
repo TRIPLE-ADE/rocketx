@@ -1,5 +1,6 @@
 'use client';
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SwapFooter() {
     return (
@@ -16,8 +17,8 @@ export default function SwapFooter() {
                         </div>
                     </div>
                     <div className="md:space-x-8">
-                        <a href="#" className="hover:underline">TERMS OF USE</a>
-                        <a href="#" className="hover:underline mt-3 md:mt-0 block md:inline text-left">PRIVACY POLICY</a>
+                        <Link href="#" className="hover:underline">TERMS OF USE</Link>
+                        <Link href="#" className="hover:underline mt-3 md:mt-0 block md:inline text-left">PRIVACY POLICY</Link>
                     </div>
                     <div className="md:flex gap-2">
                         <Image src="/volume-icon.png" alt="shield icon" width={16} height={16} />
