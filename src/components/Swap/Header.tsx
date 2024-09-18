@@ -80,7 +80,7 @@ export default function Header() {
                     <Image src="/wallet.png" alt="wallet" width={15} height={15} className='mr-1'/>
                     CONNECT
                 </Button>
-                <Button>
+                <Button className='p-2'>
                     <AlignJustify />
                 </Button>
             </div>

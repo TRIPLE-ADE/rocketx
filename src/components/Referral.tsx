@@ -14,16 +14,16 @@ export default function Referral() {
                     <li className="float-left w-1/5 relative h-full"><span className="rewards-line"></span></li>
                     <li className="float-left w-1/5 relative h-full"><span className="rewards-line"></span></li>
                 </ul>
-                <div className="relative pt-72 pb-36">
+                <div className="relative md:pt-72 pb-36">
                     <div className="rewards-right w-1/2 h-full absolute top-0 right-0">
                         <div className="banner-rewards-1"></div>
                         <div className="shape-rewards"></div>
                     </div>
-                    <div className="relative w-full font-black text-white text-[100px] tracking-tighter">
+                    <div className="relative w-full font-black text-white text-[64px] mt-20 md:mt-0 md:text-[100px] text-center md:text-left tracking-tighter">
                         <h2 className="backup-headline referral-headline leading-[120px] text-black w-full absolute left-0 top-[-30px] ms500">Referral</h2>
                         <h2 className="z-[2] relative pt-10 text-[#1f2e45] ms500">&amp; Rewards</h2>
                     </div>
-                    <p className="text-primary leading-8 tracking-wide z-10 relative w-[65%] pb-8 text-xl">
+                    <p className="text-primary leading-8 tracking-wide z-10 relative px-4 mt-4 md:mt-0 md:px-0 text-center md:text-left md:w-[65%] pb-8 text-xl">
                         Are you tired of simply holding your crypto assets with no added benefits? The wait is over!
                         <br />
                         <br />
@@ -31,25 +31,25 @@ export default function Referral() {
                     </p>
                     <Button className="uppercase text-white text-[11px] bg-muted font-bold py-2 px-[14px] h-auto z-10" aria-label="about referral">Referral</Button>
                     <Button aria-label="get my referral link" className="underline bg-white font-bold uppercase text-muted-foreground ml-1 z-10 text-[11px] py-2 px-[14px] h-auto">Get my ref link</Button>
-                    <ul className="pt-20 z-10 relative list-none font-bold flex gap-2 flex-col md:flex-row">
-                        <li className="md:w-1/4 flex items-center gap-6">
+                    <ul className="pt-20 z-10 relative list-none font-bold flex gap-20 md:gap-2 flex-col md:flex-row">
+                        <li className="md:w-1/4 flex flex-col md:flex-row items-center gap-6">
                             <Image width={44} height={44} src="/ref-icon.png" className="rewards-stats-icon" alt="referral" />
                             <div>
                                 <h4 className="text-2xl tracking-tight text-muted">Refer &amp; Earn</h4>
                                 <h6 className="pt-2.5 tracking-tight text-[13px] text-black uppercase">Up to 50% Comission</h6>
                             </div>
                         </li>
-                        <li className="md:w-1/4 flex items-center gap-6">
+                        <li className="md:w-1/4 flex flex-col md:flex-row items-center gap-6">
                             <Image width={44} height={44} src="/sign-up-icon.png" className="rewards-stats-icon" alt="sign-up" />
                             <div>
                                 <h4 className="text-2xl tracking-tight text-muted">Get 100% Discount</h4>
-                                <h6 className="pt-2.5 tracking-tight text-[13px] text-black uppercase">
+                                <h6 className="pt-2.5 tracking-tight text-center md:text-left text-[13px] text-black uppercase">
                                     HODL RVF
                                 </h6>
                             </div>
                         </li>
                     </ul>
-                    <div className="text-xl z-10 text-primary relative mt-10">
+                    <div className="text-xl z-10 text-primary relative mt-10 text-center md:text-left">
                         Check out the {" "}
                         <Link href="#" target="_blank" rel="noopener noreferrer" className="underline">benefits</Link> of holding RVF.
                     </div>

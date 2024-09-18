@@ -7,7 +7,7 @@ export default function Hero() {
     return (
         <div className="w-full min-h-screen font-bold flex flex-col items-center justify-center p-4 bg-[#010106] bg-[url('/bg.webp')] bg-fixed bg-cover bg-center bg-no-repeat overflow-x-hidden">
             <Header />
-            <div className="w-full lg:w-3/5 lg:mb-0 text-white pt-20 text-center">
+            <div className="w-full lg:w-[62%] lg:mb-0 text-white pt-20 text-center">
                 <BlurFade>
                     <p className="text-2xl font-normal">Cheaper, Faster and more Secure.</p>
                     <h1 className="text-5xl font-bold leading-tight my-8">

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="px-12 text-primary text-[15px] font-normal z-10 pt-24 pb-48 mx-auto  relative mt-40" style={{ boxShadow: "0 -1px 0 rgba(255, 255, 255, .05)" }}>
+        <footer className="md:px-12 px-5 text-primary text-[15px] font-normal z-10 pt-24 pb-48 mx-auto  relative mt-40" style={{ boxShadow: "0 -1px 0 rgba(255, 255, 255, .05)" }}>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
                 {/* Logo and Language Section */}
                 <section>

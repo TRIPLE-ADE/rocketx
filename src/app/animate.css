@@ -114,6 +114,16 @@
     margin-left: -75px;
 }
 
+@media (max-width: 768px){
+    .shape-rewards {
+        top: 0%;
+        width: 150px;
+        height: 150px;
+        /* margin-left: 0; */
+        left: 0;
+    }
+}
+
 @keyframes rewardsLevitate {
 
     0% {
@@ -303,6 +313,7 @@
     z-index: 3;
 }
 
+
 @keyframes auditOrb {
     100% {
         background-position: -11948px bottom;
@@ -320,7 +331,6 @@
     background: url(/orb-explode.png) no-repeat 0 bottom;
     z-index: 1;
 }
-
 
 @keyframes auditOrbExplode {
     100%{

@@ -2,10 +2,11 @@ import { AlignJustify, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { Button } from './ui/button';
 
 export default function Header() {
     return (
-        <header className="py-6 relative text-white font-bold text-xs z-10 px-10 container mx-auto flex flex-wrap justify-between items-center">
+        <header className="py-6 relative text-white font-bold text-xs z-10 px-2 md:px-10 container mx-auto flex flex-wrap justify-between items-center">
             {/* Logo */}
             <Link href="./swap" className="block">
                 <Image
@@ -61,7 +62,9 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex w-1/2 justify-end">
-                <AlignJustify />
+                <Button className='p-2'>
+                    <AlignJustify />
+                </Button>
             </div>
         </header>
     );
