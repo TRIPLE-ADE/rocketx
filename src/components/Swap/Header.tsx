@@ -2,6 +2,7 @@ import { AlignJustify, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { Button } from '../ui/button';
 
 export default function Header() {
     return (
@@ -74,8 +75,14 @@ export default function Header() {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="lg:hidden flex w-1/2 justify-end">
-                <AlignJustify />
+            <div className="lg:hidden flex justify-end gap-2">
+                <Button className='text-white font-semibold'>
+                    <Image src="/wallet.png" alt="wallet" width={15} height={15} className='mr-1'/>
+                    CONNECT
+                </Button>
+                <Button>
+                    <AlignJustify />
+                </Button>
             </div>
         </header>
     );

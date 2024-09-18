@@ -325,25 +325,22 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover
+  background-size: cover;
 }
 
 .audit-wrapper {
   width: 100%;
-  background-image: url(/bg.webp);
+  background-image: url(/bg2.webp);
   position: relative;
   background-position: left bottom;
   background-repeat: no-repeat;
   background-color: #000000;
+  /* background-size: cover; */
+  height: 100%;
 }
 
 #new1.show {
   transform: translate(0%);
-}
-
-#new, #old, #new1 {
-  position: absolute;
-  width: 100%;
 }
 
 
