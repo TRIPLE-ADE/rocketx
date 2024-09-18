@@ -35,7 +35,7 @@ export default function Audit() {
                     </ul>
                 </div>
             </div>
-            <div className="w-full relative z-30 overflow-hidden pb-24 pt-24 h-[760px]">
+            <div className="w-full relative z-30 overflow-x-hidden h-full pt-24">
                 <div className="new1-container ms500 show" id="new1">
                     <div className="px-12 z-10 relative m-auto">
                         <div className="relative w-full mt-24">
@@ -53,7 +53,7 @@ export default function Audit() {
                             <div className="navigator backup-headline absolute left-[430px] top-[-30px] font-bold z-[200] cursor-pointer text-[60px] w-max ms500" id="showOld">2022</div>
                             <h2 className="text-white text-[100px] w-full text-left tracking-tighter z-20 relative leading-[100px] mt-10 font-black">Roadmap</h2>
                         </div>
-                        <ul className="pt-24 font-normal ms500 grid sm:grid-cols-2 lg:grid-cols-4">
+                        <ul className="pt-24 relative font-normal ms500 grid sm:grid-cols-2 lg:grid-cols-4">
                             <li className="box-sizing">
                                 <h4 className="text-2xl text-white pb-8 relative inline-block font-bold">Q1</h4>
                                 <div className="roadmap-item active">New Blockchains Integration</div>
