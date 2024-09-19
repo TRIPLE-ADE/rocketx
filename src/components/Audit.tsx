@@ -1,7 +1,77 @@
+'use client'
 import Image from "next/image";
 import Footer from "./Footer";
+import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+
+interface RoadmapItem {
+    title: string;
+    items: string[];
+}
+
+const roadmapData: { [key: string]: RoadmapItem } = {
+    "Q1": {
+        title: "Q1",
+        items: [
+            "Q1",
+            "New Blockchains Integration",
+            "Improved User Experience",
+            "Additional Wallet Support",
+            "Support 125+ Blockchains",
+            "Daily $RVF Burn 🔥"
+        ]
+    },
+    "Q2": {
+        title: "Q2",
+        items: [
+            "Q2",
+            "Walletless Swap Web App Launch",
+            "Walletless Swap APIs Launch",
+            "Daily Burn 🔥 & Buybacks",
+            "New Blockchains Integration",
+            "New Exchange/Bridge Integration",
+            "Support 150+ Blockchains"
+        ]
+    },
+    "H2 - 2024": {
+        title: "H2 - 2024",
+        items: [
+            "H2 - 2024",
+            "Swap Widget",
+            "New Exchange/Bridge Integration",
+            "Faster Routes",
+            "Daily $RVF Buybacks",
+            "Rebranding",
+            "Partnerships",
+            "Dashboard",
+            "New Blockchains Integration",
+            "Support 200+ Blockchains"
+        ]
+    },
+    "a2025": {
+        title: "2025",
+        items: [
+            "2025",
+            "Android Mobile App - Launch",
+            "iOS Mobile App - Launch",
+            "Limit Order",
+            "Partnerships",
+            "Daily $RVF Buybacks",
+            "Support 200+ Blockchains"
+        ]
+    }
+};
+
 
 export default function Audit() {
+    const [activeTab, setOpenSection] = useState<string | null>(null);
+
+    // Function to toggle open/closed tabs
+    const handleTabClick = (section: string) => {
+        setOpenSection(activeTab === section ? null : section);
+    };
+
     return (
         <div className="audit-wrapper">
             <div className="relative z-[3] w-full pt-24 pb-48 overflow-hidden">
@@ -53,7 +123,28 @@ export default function Audit() {
                             <div className="navigator backup-headline absolute left-64 md:left-[430px] top-[-30px] font-bold z-[200] cursor-pointer text-[40px] md:text-[60px] w-max ms500" id="showOld">2022</div>
                             <h2 className="text-white text-[60px] md:text-[100px] w-full text-left tracking-tighter z-20 relative leading-[100px] mt-10 font-black">Roadmap</h2>
                         </div>
-                        <ul className="md:pt-24 pt-5 relative font-normal ms500 grid sm:grid-cols-2 lg:grid-cols-4">
+                        {/* Tabs for mobile */}
+                        <Tabs defaultValue="Q1" className="w-full md:hidden">
+                            <TabsList className="grid w-full grid-cols-4">
+                                {Object.keys(roadmapData).map((key) => (
+                                    <TabsTrigger key={key} value={key}>
+                                        {roadmapData[key].title}
+                                    </TabsTrigger>
+                                ))}
+                            </TabsList>
+                            {Object.keys(roadmapData).map((key) => (
+                                <TabsContent key={key} value={key}>
+                                    <div className="p-5 text-center pt-20">
+                                        <ul className="list-none text-white">
+                                            {roadmapData[key].items.map((item, index) => (
+                                                <li key={index} className={`py-2 ${index == 0 ? 'font-bold text-white pb-8 text-5xl' : 'text-white text-2xl py-4'}`}>{item}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </TabsContent>
+                            ))}
+                        </Tabs>
+                        <ul className="md:pt-24 hidden md:grid pt-5 relative font-normal ms500 sm:grid-cols-2 gap-10 lg:grid-cols-4">
                             <li className="box-sizing">
                                 <h4 className="text-2xl text-white pb-8 relative inline-block font-bold">Q1</h4>
                                 <div className="roadmap-item active">New Blockchains Integration</div>
