@@ -66,12 +66,7 @@ const roadmapData: { [key: string]: RoadmapItem } = {
 
 export default function Audit() {
     const [activeTab, setOpenSection] = useState<string | null>(null);
-
-    // Function to toggle open/closed tabs
-    const handleTabClick = (section: string) => {
-        setOpenSection(activeTab === section ? null : section);
-    };
-
+    
     return (
         <div className="audit-wrapper">
             <div className="relative z-[3] w-full pt-24 pb-48 overflow-hidden">

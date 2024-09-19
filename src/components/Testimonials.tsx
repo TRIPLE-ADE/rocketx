@@ -2,6 +2,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"
+import Image from "next/image";
 
 const testimonials = [
     {
@@ -9,7 +10,7 @@ const testimonials = [
         title: "There's only two types of people. Those like $RVF and those that just haven't tried it yet.",
         name: "@IncomeSharks",
         role: "Twitter Icon",
-        image: "https://cdn.rocketx.exchange/pd135zq/website/icons/twitter.svg"
+        image: "/twitter.svg"
     },
     {
         stars: "★★★★★",
@@ -17,7 +18,7 @@ const testimonials = [
         description: "This is my go-to exchange when looking for new investments. GUI is very nice and everything works so smoothly, I love it 🙌",
         name: "Felix Shouten",
         role: "Customer",
-        image: "https://via.placeholder.com/150"
+        image: "/150"
     },
     {
         stars: "★★★★★",
@@ -25,7 +26,7 @@ const testimonials = [
         description: "I'm not an avid trader but I really like RocketX Exchange's easy-to-use interface for swapping tokens independently of the network they are located on, and the fact that you do not have to get your tokens off your hardware wallet.",
         name: "Frodo Jansen",
         role: "Customer",
-        image: "https://via.placeholder.com/150"
+        image: "/150"
     },
     {
         stars: "★★★★★",
@@ -33,7 +34,7 @@ const testimonials = [
         description: "It was super easy to use, very fast, and with no issues. I still can't believe all the different tokens and networks that I can trade! WOW!!!",
         name: "XAVIER de Paz",
         role: "Customer",
-        image: "https://via.placeholder.com/150"
+        image: "/150"
     },
     {
         stars: "★★★★★",
@@ -41,7 +42,7 @@ const testimonials = [
         description: "I just did a BNB to ETH cross-chain swap from the native chains and was blown away with the ease and gas fee, RocketX saved me.",
         name: "Debbie B",
         role: "Customer",
-        image: "https://via.placeholder.com/150"
+        image: "/150"
     },
     {
         stars: "★★★★★",
@@ -49,7 +50,7 @@ const testimonials = [
         description: "I have tested the platform with 350+ tokens and it’s flawless. Crosschain swap executed in less than 1 minute with very low fees. There is no project that allows this in a decentralized way.",
         name: "NotJacker",
         role: "Customer",
-        image: "https://via.placeholder.com/150"
+        image: "/150"
     }
 ];
 
@@ -98,7 +99,9 @@ export default function Testimonials() {
                                     <p className="text-lg italic mb-2">{testimonial.description}</p>
                                 )}
                                 <div className="name">
-                                    <img
+                                    <Image
+                                        width={40}
+                                        height={40}
                                         src={testimonial.image}
                                         alt={testimonial.name}
                                         className="w-10 h-10 rounded-full inline mr-2"
