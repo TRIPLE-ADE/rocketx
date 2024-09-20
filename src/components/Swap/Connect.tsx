@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Connect() {
     return (
-        <BlurFade delay={0.15}>
+        // <BlurFade delay={0.15}>
             <div className="flex justify-center">
                 <section className="connect-card text-xs max-w-[480px] md:max-w-none">
                     <div className="flex items-center justify-between pb-5">
@@ -116,6 +116,6 @@ export default function Connect() {
                     </div>
                 </section>
             </div>
-        </BlurFade>
+        // </BlurFade>
     );
 }
