@@ -65,8 +65,6 @@ const roadmapData: { [key: string]: RoadmapItem } = {
 
 
 export default function Audit() {
-    const [activeTab, setOpenSection] = useState<string | null>(null);
-    
     return (
         <div className="audit-wrapper">
             <div className="relative z-[3] w-full pt-24 pb-48 overflow-hidden">
