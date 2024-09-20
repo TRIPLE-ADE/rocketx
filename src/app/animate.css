@@ -399,3 +399,15 @@
         transform: rotate(0deg);
     }
 }
+
+
+
+.slick-center .testimonial-slide {
+    transform: scale(1.1); /* Make the center slide bigger */
+    z-index: 1; /* Ensure it appears above the others */
+    border-radius: 50px;
+  }
+  .testimonial-slide {
+    transition: transform 0.5s ease; /* Smooth transition between scaling */
+    transform: scale(0.9); /* Non-center slides are smaller */
+  }
