@@ -95,7 +95,7 @@ export default function Header() {
                 </Button>
             </div>
             {/* Mobile Menu */}
-            <div className={`lg:hidden fixed text-[13px] isolate  top-0 right-0 h-full w-full pt-10 bg-black text-white z-[10000] transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300`}>
+            <div className={`lg:hidden fixed text-[13px] isolate  top-0 right-0 h-full w-full pt-10 bg-black text-white z-40 transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300`}>
                 <div className="flex justify-end pr-4">
                     {/* Close button */}
                     <button onClick={toggleMobileMenu} className='bg-primary h-10 px-3.5 rounded-sm flex flex-col mt-7 items-center justify-center'>
@@ -103,69 +103,33 @@ export default function Header() {
                     </button>
                 </div>
                 <ul className="flex flex-col p-4 space-y-4 uppercase">
-                    {/* Home Dropdown */}
-                    <li>
-                        <button onClick={() => toggleSection('home')} className="flex uppercase font-bold justify-between items-center px-4 py-2 w-full">
-                            Home
-                            <PlusIcon className={`transition-transform ${openSection === 'home' ? 'rotate-180' : 'rotate-0'}`} />
-                        </button>
-                        {openSection === 'home' && (
-                            <ul className="pl-4 space-y-2 text-[#7D8CA3]">
-                                <li>
-                                    <Link href="#features" className="block px-4 py-2">
-                                        Features
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="#audit" className="block px-4 py-2">
-                                        Audit
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="#roadmap" className="block px-4 py-2">
-                                        Roadmap
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="#rvf-utility" className="block px-4 py-2">
-                                        RVF Utility
-                                    </Link>
-                                </li>
-                            </ul>
-                        )}
-                    </li>
-
-                    {/* About Dropdown */}
-                    <li>
-                        <button onClick={() => toggleSection('about')} className="flex uppercase font-bold justify-between items-center px-4 py-2 w-full">
-                            About
-                            <PlusIcon className={`transition-transform ${openSection === 'about' ? 'rotate-180' : 'rotate-0'}`} />
-                        </button>
-                        {openSection === 'about' && (
-                            <ul className="pl-4 space-y-2 text-[#7D8CA3]">
-                                <li>
-                                    <Link href="#ecosystem" className="block px-4 py-2">
-                                        Ecosystem
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="#timeline" className="block px-4 py-2">
-                                        Timeline
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="#partners" className="block px-4 py-2">
-                                        Partners
-                                    </Link>
-                                </li>
-                            </ul>
-                        )}
-                    </li>
-
                     {/* Other Menu Items */}
                     <li>
-                        <Link href="#blog" className="block px-4 py-2 font-bold uppercase">
-                            Blog
+                        <Link href="./swap" className="block px-4 py-2 font-bold uppercase">
+                            SWAP
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="./history" className="block px-4 py-2 font-bold uppercase">
+                            History
+                        </Link>
+                    </li>
+                    <li className='hidden xl:block'>
+                        <Link href="./referral" className="block px-4 py-2 font-bold uppercase">
+                            REFERRAL
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="./analytics" className="block px-4 py-2 font-bold uppercase">
+                            ANALYTICS
+                        </Link>
+                    </li>
+                    <Link href="./staking" className="block px-4 py-2 font-bold uppercase">
+                        STAKING
+                    </Link>
+                    <li>
+                        <Link href="./help" className="block px-4 py-2 font-bold uppercase">
+                            HELP
                         </Link>
                     </li>
                     <li>
@@ -174,9 +138,6 @@ export default function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="#vision-paper" className="block px-4 py-2 font-bold uppercase">
-                            VISION PAPER
-                        </Link>
                     </li>
                 </ul>
             </div>

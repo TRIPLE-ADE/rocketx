@@ -11,14 +11,13 @@ export default function Header() {
     const { isOpen: isMobileMenuOpen, toggle: toggleMobileMenu } = useToggle();
 
     const [openSection, setOpenSection] = useState<string | null>(null); // Tracks the open section
-
     // Function to toggle the section
     const toggleSection = (section: string) => {
         setOpenSection(openSection === section ? null : section);
     };
 
     return (
-        <header className="py-6 relative text-white font-bold text-xs z-10 px-2 md:px-10 container mx-auto flex flex-wrap justify-between items-center">
+        <header className="py-6 relative text-white font-bold text-xs z-50 px-2 md:px-10 container mx-auto flex flex-wrap justify-between items-center">
             {/* Logo */}
             <Link href="./swap" className="block">
                 <Image
