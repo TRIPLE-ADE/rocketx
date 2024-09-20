@@ -1,20 +1,15 @@
 'use client'
-import { AlignJustify, ChevronDown, PlusIcon, XIcon } from 'lucide-react';
+import { AlignJustify, ChevronDown, XIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '../ui/button';
 import useToggle from '@/utils/hooks';
 
 export default function Header() {
+    
     const { isOpen: isMobileMenuOpen, toggle: toggleMobileMenu } = useToggle();
 
-    const [openSection, setOpenSection] = useState<string | null>(null); // Tracks the open section
-
-    // Function to toggle the section
-    const toggleSection = (section: string) => {
-        setOpenSection(openSection === section ? null : section);
-    };
     return (
         <header className="py-10 relative text-primary font-bold text-xs z-10 px-4 container mx-auto flex flex-wrap justify-between items-center">
             {/* Logo */}
