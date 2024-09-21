@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { DM_Sans } from 'next/font/google'
+import Providers from "./providers";
 import "./globals.css";
 import "./animate.css"
 
-const dm_sans = DM_Sans({ 
+const dm_sans = DM_Sans({
   weight: ['400', '500', '700'],
-  subsets: ['latin'] 
+  subsets: ['latin']
 })
 
 export const metadata: Metadata = {
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body
         className={`${dm_sans.className} antialiased`}
       >
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

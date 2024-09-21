@@ -114,7 +114,7 @@
     margin-left: -75px;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .shape-rewards {
         top: 0%;
         width: 150px;
@@ -333,7 +333,7 @@
 }
 
 @keyframes auditOrbExplode {
-    100%{
+    100% {
         background-position: -11678px bottom;
     }
 }
@@ -386,15 +386,19 @@
     0% {
         transform: rotate(0deg);
     }
+
     10% {
         transform: rotate(90deg);
     }
+
     60% {
         transform: rotate(90deg);
     }
+
     70% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(0deg);
     }
@@ -403,11 +407,31 @@
 
 
 .slick-center .testimonial-slide {
-    transform: scale(1.1); /* Make the center slide bigger */
-    z-index: 1; /* Ensure it appears above the others */
+    transform: scale(1.1);
+    z-index: 1;
     border-radius: 50px;
-  }
-  .testimonial-slide {
-    transition: transform 0.5s ease; /* Smooth transition between scaling */
-    transform: scale(0.9); /* Non-center slides are smaller */
-  }
+}
+
+.testimonial-slide {
+    transition: transform 0.5s ease;
+    transform: scale(0.9);
+}
+
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
