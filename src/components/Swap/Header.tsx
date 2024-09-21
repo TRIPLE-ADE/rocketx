@@ -7,7 +7,7 @@ import { Button } from '../ui/button';
 import useToggle from '@/utils/hooks';
 
 export default function Header() {
-    
+
     const { isOpen: isMobileMenuOpen, toggle: toggleMobileMenu } = useToggle();
 
     return (
@@ -55,10 +55,22 @@ export default function Header() {
                     {/* More Dropdown */}
                     <li className="relative group">
                         <button className="hover:text-white flex items-start gap-1">MORE <ChevronDown className='-mt-1' /></button>
-                        <ul className="absolute hidden group-hover:block bg-white shadow-lg py-2 isolate w-40 z-[10000]">
+                        <ul className="absolute hidden group-hover:block font-bold uppercase shadow-lg py-2 isolate z-[10000] w-52 bg-[#10101d99] top-1/2 mt-9 leading-normal list-none p-2 rounded-md tracking-wide text-xs text-[#7D8CA3] backdrop-blur-lg">
                             <li>
-                                <Link href="#faq" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                                    FAQ
+                                <Link href="#faq" className="block px-4 py-2 text-[#7D8CA3] hover:bg-gray-100">
+                                    REFERRAL
+                                </Link>
+                                <Link href="#faq" className="block px-4 py-2 text-[#7D8CA3] hover:bg-gray-100">
+                                    MIGRATE RVF
+                                </Link>
+                                <Link href="#faq" className="block px-4 py-2 text-[#7D8CA3] hover:bg-gray-100">
+                                    TAX REPORTING
+                                </Link>
+                                <Link href="#faq" className="block px-4 py-2 text-[#7D8CA3] hover:bg-gray-100">
+                                    FIAT ON-RAMP
+                                </Link>
+                                <Link href="#faq" className="block px-4 py-2 text-[#7D8CA3] hover:bg-gray-100">
+                                    LOGIN
                                 </Link>
                             </li>
                         </ul>
