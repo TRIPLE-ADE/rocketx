@@ -10,7 +10,6 @@ import {
     DrawerClose,
     DrawerContent,
     DrawerHeader,
-    DrawerTitle,
     DrawerTrigger,
 } from "@/components/ui/drawer";
 import { ChevronDown, Star, XIcon } from "lucide-react";
