@@ -5,6 +5,16 @@ import { Switch } from "../ui/switch";
 import Image from "next/image";
 import { useGetCoins, useGetExchangeRate, useGetCoinByID, Coin } from '@/api/coins';
 import { useState, useEffect } from "react";
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from "@/components/ui/drawer";
+import { ChevronDown, Star, XIcon } from "lucide-react";
+import { coinNetwork } from "@/data/coins"
 
 export default function Connect() {
 
@@ -13,23 +23,27 @@ export default function Connect() {
     const [fromAmount, setFromAmount] = useState<string>('0.0');
     const [toAmount, setToAmount] = useState<string>('0.0');
     const [exchangeRate, setExchangeRate] = useState<number>(0);
+    const [searchNetwork, setSearchNetwork] = useState<string>('');
+    const [searchToken, setSearchToken] = useState<string>('');
+    const [selectedChain, setSelectedChain] = useState<string | null>(null);
+    const [coinData, setCoinData] = useState<Coin[]>([]);
 
     // Set default selections once coins are loaded
     const { data: coins = [], isLoading: loadingCoins } = useGetCoins();
     // Fetch coin details only after a coin is selected
     const { data: fromCoinDetail, isLoading: loadingFromCoin } = useGetCoinByID(selectedFrom?.id ?? '');
     const { data: toCoinDetail, isLoading: loadingToCoin } = useGetCoinByID(selectedTo?.id ?? '');
+    const { data: exchangeRateData } = useGetExchangeRate(selectedFrom?.id ?? '', selectedTo?.id ?? '');
 
     useEffect(() => {
         if (coins.length > 0) {
+            setCoinData(coins)
             setSelectedFrom(coins[0]);
             setSelectedTo(coins[1]);
         }
     }, [coins]);
 
-    const { data: exchangeRateData } = useGetExchangeRate(selectedFrom?.id ?? '', selectedTo?.id ?? '');
 
-    // Update exchange rate when data is available
     useEffect(() => {
         if (exchangeRateData && selectedFrom && selectedTo) {
             const fromPrice = exchangeRateData[selectedFrom.id]?.usd;
@@ -54,11 +68,36 @@ export default function Connect() {
         }
     };
 
+    const filteredNetworks = coins.filter(coin =>
+        coin.name.toLowerCase().includes(searchNetwork.toLowerCase()) ||
+        coin.symbol.toLowerCase().includes(searchNetwork.toLowerCase())
+    );
+
+    const filteredTokens = coins.filter(coin =>
+        coin.name.toLowerCase().includes(searchToken.toLowerCase()) ||
+        coin.symbol.toLowerCase().includes(searchToken.toLowerCase())
+    );
+
+    const handleClick = async (symbol: string) => {
+        setSelectedChain(symbol);
+
+        try {
+            const chainTokens = coinNetwork[symbol.toUpperCase()] || [];
+
+            const matchedCoins = coins.filter((coin) =>
+                chainTokens.includes(coin.symbol.toUpperCase())
+            );
+
+            setCoinData(matchedCoins);
+        } catch (error) {
+            console.error('Error fetching coins:', error);
+        }
+    };
+
     return (
-        <BlurFade delay={0.15}>
-            <div className="flex relative justify-center">
-                <div className={`loader absolute z-50 top-[50%] ${loadingCoins || loadingFromCoin || loadingToCoin ? '' : 'hidden'}`}></div>
-                <section className={`connect-card text-xs max-w-[480px] md:max-w-none ${loadingCoins || loadingFromCoin || loadingToCoin ? 'blur-sm' : ''}`}>
+        <BlurFade>
+            <div className="flex relative justify-center overflow-y-auto">
+                <section className="connect-card text-xs max-w-[480px] md:max-w-none">
                     <div className="flex items-center justify-between pb-5">
                         <p className="uppercase py-[7px] px-2.5 ml-2">SWAP</p>
                         <Button size="icon">
@@ -114,15 +153,82 @@ export default function Connect() {
                                         </span>
                                     </div>
                                 </div>
-                                <select
-                                    value={selectedFrom?.id ?? ''}
-                                    onChange={(e) => handleCoinChange('from', coins.find(coin => coin.id === e.target.value)!)}
-                                    className="rounded bg-secondary outline-none text-[13px] px-2 py-1 border-none focus-none w-16"
-                                >
-                                    {coins.map((coin) => (
-                                        <option key={coin.id} value={coin.id}>{coin.symbol.toUpperCase()}</option>
-                                    ))}
-                                </select>
+                                <Drawer direction="top">
+                                    <DrawerTrigger className="rounded bg-secondary outline-none text-[13px] border-none focus:none flex justify-between gap-2 items-center">
+                                        <span className="uppercase">{selectedFrom?.symbol ?? ''}</span>
+                                        <ChevronDown size={16} />
+                                    </DrawerTrigger>
+                                    <DrawerContent className="max-h-full overflow-hidden max-w-[600px] m-auto grid grid-cols-3 lg:grid-cols-5 border-none">
+                                        <div className="h-full bg-[#0D0D20] lg:col-span-2">
+                                            <DrawerHeader>
+                                                <input
+                                                    type="text"
+                                                    placeholder="NETWORK"
+                                                    value={searchNetwork}
+                                                    onChange={(e) => setSearchNetwork(e.target.value)} // Update search term on input
+                                                    className="w-full px-4 py-2 mt-2 border-none outline-none text-[11px] bg-secondary rounded"
+                                                />
+                                            </DrawerHeader>
+                                            <div className="grid lg:grid-cols-2 gap-2 items-start p-2 overflow-y-auto custom-scrollbar h-svh">
+                                                {filteredNetworks.map((coin) => (
+                                                    <Button onClick={() => handleClick(coin.symbol)} key={coin.id} className="flex-col justify-center items-center gap-2 py-3 h-auto border border-[#2f3857] bg-transparent focus-within:bg-secondary hover:bg-inherit focus:hover:bg-secondary">
+                                                        <Image src={coin.image || '/ethereum-grey.png'} alt={coin.name} width={32} height={32} />
+                                                        <span>{coin.symbol.toUpperCase()}</span>
+                                                    </Button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="col-span-2 lg:col-span-3 bg-[#141429]">
+                                            <div className="pt-5 px-2">
+                                                <h4 className="uppercase font-bold text-base">Swapping from</h4>
+                                                <input
+                                                    type="text"
+                                                    placeholder="TOKEN OR ADDRESS"
+                                                    value={searchToken}
+                                                    onChange={(e) => setSearchToken(e.target.value)}
+                                                    className="w-full px-4 py-2 mt-2 border-none outline-none text-[11px] bg-secondary rounded"
+                                                />
+                                            </div>
+                                            <div className="flex flex-col p-2 overflow-y-auto custom-scrollbar h-svh">
+                                                <div className="grid grid-cols-4 gap-2 mb-2">
+                                                    {
+                                                        selectedChain && coinData.length > 0 && (
+                                                            coinData.map((coin) => (
+                                                                <DrawerClose key={coin.id}>
+                                                                    <Button
+                                                                        key={coin.id}
+                                                                        className="flex justify-center items-center gap-1.5 py-1 px-3 rounded-sm h-auto w-full bg-secondary text-white hover:bg-secondary"
+                                                                        onClick={() => handleCoinChange('from', coin)}
+                                                                    >
+                                                                        <Image src={coin.image || '/ethereum-grey.png'} alt={coin.name} width={20} height={20} />
+                                                                        <span>{coin.symbol.toUpperCase()}</span>
+                                                                    </Button>
+                                                                </DrawerClose>
+                                                            ))
+                                                        )
+                                                    }
+                                                </div>
+                                                {filteredTokens.map((coin) => (
+                                                    <DrawerClose key={coin.id}>
+                                                        <Button onClick={() => handleCoinChange('from', coin)} className="justify-between w-full mt-2 items-center gap-2 py-3 h-auto border border-[#2f3857] bg-transparent focus-within:bg-secondary hover:bg-inherit focus:hover:bg-secondary">
+                                                            <span className="flex flex-col justify-start items-start">
+                                                                <span className="text-[13px]">{coin.symbol.toUpperCase()}</span>
+                                                                <span className="text-[11px] text-primary">{coin.name}</span>
+                                                            </span>
+                                                            <span className="flex gap-3 items-center">
+                                                                <Star size={16} className="text-primary" />
+                                                                <Image src={coin.image || '/ethereum-grey.png'} alt={coin.name} width={24} height={24} />
+                                                            </span>
+                                                        </Button>
+                                                    </DrawerClose>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <DrawerClose className="absolute top-6 right-6">
+                                            <XIcon size={12} />
+                                        </DrawerClose>
+                                    </DrawerContent>
+                                </Drawer>
                             </div>
                             <div className="absolute top-[40%] left-[43%] rounded-full bg-secondary-foreground w-9 h-9 flex flex-col justify-center items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="18" height="18" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">
@@ -140,25 +246,48 @@ export default function Connect() {
                                             alt={toCoinDetail?.name || 'Coin Network'}
                                             width={24}
                                             height={24}
-                                            className="min-w-[20px] min-h-[20px]"
+                                            className="min-w-[20px] min-h-[20px"
                                         />
                                     </div>
                                     <div className="flex flex-col">
-                                        <span className="token-amount-input text-center w-full">{isNaN(parseFloat(toAmount)) ? '' : toAmount}</span>
+                                        <input
+                                            type="number"
+                                            value={toAmount}
+                                            onChange={handleFromAmountChange}
+                                            placeholder="0.0"
+                                            className="token-amount-input w-full [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                        />
                                         <span className="text-[#7D8CA3] text-start mt-4 text-[11px]">
-                                            {isNaN(parseFloat(toAmount) * exchangeRate) ? '' : ` ~$ ${(parseFloat(toAmount) * exchangeRate).toFixed(2)}`}
+                                            {isNaN(parseFloat(toAmount) * exchangeRate) ? '' : `~$ ${(parseFloat(toAmount) * exchangeRate).toFixed(2)}`}
                                         </span>
                                     </div>
                                 </div>
-                                <select
-                                    value={selectedTo?.id ?? ''}
-                                    onChange={(e) => handleCoinChange('from', coins.find(coin => coin.id === e.target.value)!)}
-                                    className="rounded bg-secondary outline-none  text-[13px] px-2 py-1 border-none focus-none w-16"
-                                >
-                                    {coins.map((coin) => (
-                                        <option key={coin.id} value={coin.id}>{coin.symbol.toUpperCase()}</option>
-                                    ))}
-                                </select>
+                                <Drawer direction="top">
+                                    <DrawerTrigger className="rounded bg-secondary outline-none text-[13px] border-none focus:none flex justify-between gap-2 items-center">
+                                        <span className="uppercase">{selectedTo?.symbol ?? ''}</span>
+                                        <ChevronDown size={16} />
+                                    </DrawerTrigger>
+                                    <DrawerContent className="max-h-[60svh] overflow-auto top-0 w-2/4 m-auto ">
+                                        <DrawerHeader>
+                                            <DrawerTitle>Select a Coin</DrawerTitle>
+                                        </DrawerHeader>
+                                        <div className="flex flex-col p-2">
+                                            {coins.map((coin) => (
+                                                <DrawerClose key={coin.id}>
+                                                    <Button onClick={() => handleCoinChange('to', coin)}>
+                                                        {coin.symbol.toUpperCase()}
+                                                        <Image src={coin.image || '/ethereum-grey.png'} alt={coin.name} width={24} height={24} />
+                                                    </Button>
+                                                </DrawerClose>
+                                            ))}
+                                        </div>
+                                        <DrawerClose className="absolute top-2 right-2">
+                                            <Button>
+                                                <XIcon size={12} />
+                                            </Button>
+                                        </DrawerClose>
+                                    </DrawerContent>
+                                </Drawer>
                             </div>
                         </div>
                     </div>
@@ -166,8 +295,12 @@ export default function Connect() {
                         <p className="uppercase text-primary font-bold">Fastest Quote</p>
                         <Switch />
                     </div>
-                    <Button className="uppercase p-10 h-auto text-base connect-btn font-bold">
-                        Connect Wallet
+                    <Button
+                        className={`uppercase p-10 h-auto text-base connect-btn font-bold relative ${loadingCoins || loadingFromCoin || loadingToCoin ? 'loading' : ''}`}
+                        disabled={loadingCoins || loadingFromCoin || loadingToCoin}
+                    >
+                        {loadingCoins || loadingFromCoin || loadingToCoin ? 'Fetching Quote' : 'Connect Wallet'}
+                        <span className={`loader ${loadingCoins || loadingFromCoin || loadingToCoin ? '' : 'stop'}`}></span>
                     </Button>
                     <div className="font-bold flex flex-col gap-2.5 p-5">
                         <div className="flex items-center justify-between text-sm">

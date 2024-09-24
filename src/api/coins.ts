@@ -11,7 +11,14 @@ export interface Coin {
 
 // Function to fetch coins
 const fetchCoins = async (): Promise<Coin[]> => {
-    const response = await axios.get('https://api.coingecko.com/api/v3/coins/list');
+    const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets', {
+        params: {
+            vs_currency: 'usd',     
+            order: 'market_cap_desc',
+            sparkline: false
+        }
+    });
+    
     return response.data;
 };
 

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["coin-images.coingecko.com"], // Add the external domains here
+    domains: ["coin-images.coingecko.com", "assets.coingecko.com"], // Add the external domains here
   },
 };
 
